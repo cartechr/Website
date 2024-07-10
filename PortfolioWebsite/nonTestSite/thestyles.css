@@ -7,47 +7,53 @@ body {
     background-color: #333333;
     display: flex;
     justify-content: center;
-
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 /*                                                   PAGE                                                       */
 .Page {
-    width: 50%;
-    max-width: 1500px;
+    width: 80%;
+    max-width: 1250px;
+    margin-top: 50px; /* Adjust this value based on the height of your fixed header */
 }
+
 /*                                                   HEADER                                                     */
 .header-nav {
     background-color: #333333;
     display: flex;
-    z-index: 999;
+    z-index: 1000;
     top: 0;
     align-items: center;
     justify-content: space-between;
-
     position: fixed;
-    text-decoration: none;
-    width: 50%;
+    width: 80%;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .NameRole {
-    margin: 20px;
+    margin: 0;
 }
 
 .Name {
     margin: 0;
-    font-size: 40px;
+    font-size: 30px; /* Adjusted font size for better fit on smaller screens */
+    color: white;
 }
 
 .Role {
     margin: 0;
     font-size: 15px;
+    color: white;
 }
 
 .links {
-    align-content: center;
-    gap: 2px;
     display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Allows wrapping of links on smaller screens */
 }
 
 .click {
@@ -56,13 +62,6 @@ body {
     border-radius: 20%;
     text-decoration: none;
     transition: filter 0.3s ease;
-    margin-left: 10px;
-}
-
-.click, .Resume {
-    align-content: flex-end;
-    justify-content: space-between;
-
 }
 
 .click:hover {
@@ -71,18 +70,22 @@ body {
 
 .Resume {
     text-decoration: none;
-    border: 5px solid black;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px; /* Added margin to space out the Resume link */
 }
 
+/*                                                   HEADER IMAGE                                                   */
 .header {
-    background-color: blue;
-    height: 15%;
-    margin-top: 50px;
+    margin-top: 70px; /* Adjusted to give space below fixed header */
     display: flex;
-    flex-wrap: wrap;
-    padding: 50px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Image stays on the left side */
+    padding: 0px;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Allow items to wrap onto a new line */
 }
 
 .CoverPhoto {
@@ -91,13 +94,65 @@ body {
     border: 3px solid #ccc;
     border-radius: 50%;
     border-color: red;
+    flex-shrink: 0; /* Ensures the image doesn't shrink */
+    margin-right: 100px; /* Adds space between image and text */
+    margin-left: 20px;
 }
 
 .Message {
-    font-size: 10px;
+    font-size: 14px;
     color: red;
-    max-width: 800px;
-    margin-left: 50px;
+    max-width: 45%; /* Take full width when wrapped */
+    text-align: Center  ; /* Center-align the text */
+    margin-top: 25px; /* Space between image and text */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center items in the column */
+    }
+
+    .CoverPhoto {
+        margin-bottom: 20px; /* Space below image */
+    }
+}
+
+/*                                                   Programming                                                   */
+.Projects {
+    display: grid;
+    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Game {
+    border-radius: 5px;
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.Gif {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.Info {
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.GameName, .Description {
+    color: white;
+    text-align: center;
 }
 
 /*                                                   SKILLS & EDUCATION                                                     */
@@ -109,38 +164,23 @@ body {
     padding: 50px;
 }
 
-.Skills {
-    width: 60%;
-    justify-content: center;
-    align-items: center;
+.Skills, .Education {
+    width: 45%;
     text-align: center;
 }
 
-.Tech-Title {
-    text-align: center;
+.Tech-Title, .Edu-Title {
     color: coral;
 }
 
 .Skills p {
-    border: 5px solid black;
-    display:inline-grid;
+    border: 1px solid black;
     padding: 5px;
 }
-
-.Education {
-    width: 60%;
-}
-
-.Edu-Title {
-    text-align: center;
-    color: coral;
-}
-
 
 .Edu-Grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
     gap: 10px;
 }
 
@@ -150,66 +190,14 @@ body {
     text-align: center;
 }
 
-    .Edu-Item:nth-child(3) {
-        grid-column: 1 / -1; /* Span the entire row */
-        justify-self: center; /* Center the item horizontally */
-        max-width: 300px;
-    }
+.Edu-Item:nth-child(3) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 300px;
+}
 
 .School {
     font-weight: bold; 
-}
-
-
-/*                                                   Programming                                                   */
-.Pro {
-}
-
-.Projects {
-    display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(3, 33%);
-}
-
-.Game {
-    border-radius: 5px;
-    background-color: green;
-    display:flow;
-
-}
-.Gif {
-    width: 100%;
-    max-height: 70%;
-    border-radius: 5px;
-}
-
-.Info {
-    color: white;
-    gap: 80px;
-    font-weight: bold;
-    display: flex;
-    text-align: center;
-    position: absolute;
-    transform: translate(80px, -45px);
-}
-
-.Info-Des {
-}
-
-
-.Length {
-}
-
-.Members {
-}
-
-.Engine {
-}
-
-.GameName {
-}
-
-.Description {
 }
 
 /*                                                   ABOUT ME                                                   */
@@ -217,4 +205,74 @@ body {
 }
 
 .AboutMeText {
+    color: white;
+}
+
+/*                                                   StateofSarahPage                                           */
+.Body {
+    margin-top: 70px;
+    padding: 15px 10px; 
+}
+
+.Back {
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.Content {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ProjectDes {
+    color: white;
+    background: grey;
+    margin-left: 100px;
+    padding: 0px 200px 0px 10px;
+}
+
+.ProjectInfo {
+    margin-left: 15px;
+}
+
+.Cover {
+    width: 35%;
+    margin-left: 10px;
+}
+
+/*                                                   MEDIA QUERIES                                                   */
+@media (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .links {
+        justify-content: flex-start;
+        margin-top: 10px;
+    }
+
+    .Page {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .Name {
+        font-size: 24px;
+    }
+
+    .Resume {
+        padding: 3px 7px;
+        font-size: 14px;
+    }
+
+    .Page {
+        width: 100%;
+    }
 }
