@@ -128,16 +128,27 @@ body {
 
 .Game {
     border-radius: 5px;
-    background-color: green;
+    background-color: darkgray;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
 }
+
+    .Game:hover > .Gif {
+        transform: scale(1.05);
+        opacity: 1;
+    }
 
 .Gif {
     width: 100%;
     border-radius: 5px;
+    color: red;
+    opacity: 0.25;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .Info {
