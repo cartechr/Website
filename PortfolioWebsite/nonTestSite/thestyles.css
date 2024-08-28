@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #333333;
+    background-color: #c5d3e8;
     display: flex;
     justify-content: center;
     font-family: Roboto, sans-serif;
@@ -71,7 +71,7 @@ body {
 .Resume {
     text-decoration: none;
     color: white;
-    border: 1px solid white;
+    border: 2px solid white;
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 10px; /* Added margin to space out the Resume link */
@@ -79,11 +79,11 @@ body {
 
 /*                                                   HEADER IMAGE                                                   */
 .header {
-    margin-top: 70px; /* Adjusted to give space below fixed header */
+    margin-top: 100px; /* Adjusted to give space below fixed header */
     display: flex;
     align-items: center;
     justify-content: flex-start; /* Image stays on the left side */
-    padding: 0px;
+    padding: 0px 100px;
     box-sizing: border-box;
     flex-wrap: wrap; /* Allow items to wrap onto a new line */
 }
@@ -93,15 +93,15 @@ body {
     height: 235px;
     border: 3px solid #ccc;
     border-radius: 50%;
-    border-color: red;
+    border-color: coral;
     flex-shrink: 0; /* Ensures the image doesn't shrink */
     margin-right: 100px; /* Adds space between image and text */
     margin-left: 20px;
 }
 
 .Message {
-    font-size: 14px;
-    color: red;
+    font-size: 20px;
+    color: coral;
     max-width: 45%; /* Take full width when wrapped */
     text-align: Center  ; /* Center-align the text */
     margin-top: 25px; /* Space between image and text */
@@ -120,6 +120,13 @@ body {
 }
 
 /*                                                   Programming                                                   */
+.Programming {
+    margin-top: 50px;
+}
+
+.Programming h1 {
+    color: coral;
+}
 .Projects {
     display: grid;
     gap: 25px;
@@ -139,15 +146,15 @@ body {
 }
 
     .Game:hover > .Gif {
-        transform: scale(1.05);
-        opacity: 1;
+      opacity: 1;
+      transform: scale(1.05);
     }
 
 .Gif {
     width: 100%;
     border-radius: 5px;
     color: red;
-    opacity: 0.25;
+    opacity: 0.45;
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -167,26 +174,24 @@ body {
 }
 
 /*                                                   SKILLS & EDUCATION                                                     */
-.Skill-Education {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 50px;
-}
-
-.Skills, .Education {
-    width: 45%;
-    text-align: center;
-}
-
 .Tech-Title, .Edu-Title {
     color: coral;
 }
 
+.Skill-Grid {
+    display: flex;
+    gap: 10px;
+    padding: 0px 25px;
+}
+
 .Skills p {
-    border: 1px solid black;
+    border: 1px solid white;
+    color: white;
     padding: 5px;
+    border-radius: 5px;
+    max-width: 45px;
+    align-items: center;
+    text-align: center;
 }
 
 .Edu-Grid {
