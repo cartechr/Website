@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #c5d3e8;
+    background-color: #ebebed;
     display: flex;
     justify-content: center;
     font-family: Roboto, sans-serif;
@@ -21,7 +21,7 @@ body {
 
 /*                                                   HEADER                                                     */
 .header-nav {
-    background-color: #333333;
+    background-color: #ebebed;
     display: flex;
     z-index: 1000;
     top: 0;
@@ -40,13 +40,13 @@ body {
 .Name {
     margin: 0;
     font-size: 30px; /* Adjusted font size for better fit on smaller screens */
-    color: white;
+    color: #404d80;
 }
 
 .Role {
     margin: 0;
     font-size: 15px;
-    color: white;
+    color: #404d80;
 }
 
 .links {
@@ -70,7 +70,7 @@ body {
 
 .Resume {
     text-decoration: none;
-    color: white;
+    color: 404d80;
     border: 2px solid white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -89,11 +89,11 @@ body {
 }
 
 .CoverPhoto {
-    width: 235px;
-    height: 235px;
+    width: 280px;
+    height: 280px;
     border: 3px solid #ccc;
     border-radius: 50%;
-    border-color: coral;
+    border-color: #404d80;
     flex-shrink: 0; /* Ensures the image doesn't shrink */
     margin-right: 100px; /* Adds space between image and text */
     margin-left: 20px;
@@ -101,7 +101,7 @@ body {
 
 .Message {
     font-size: 20px;
-    color: coral;
+    color: 404d80;
     max-width: 45%; /* Take full width when wrapped */
     text-align: Center  ; /* Center-align the text */
     margin-top: 25px; /* Space between image and text */
@@ -125,7 +125,7 @@ body {
 }
 
 .Programming h1 {
-    color: coral;
+    color: 404d80;
 }
 .Projects {
     display: grid;
@@ -150,12 +150,37 @@ body {
       transform: scale(1.05);
     }
 
+.GameText {
+    position: absolute;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    top: 50%;
+    left: 35%;
+}
+
 .Gif {
     width: 100%;
     border-radius: 5px;
     color: red;
     opacity: 0.45;
     transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.video-container {
+    width: 500px; /* Desired visible width */
+    height: 500px; /* Desired visible height */
+    overflow: hidden; /* Ensures that only part of the video within this container is visible */
+    position: relative; /* The video will be positioned relative to this container */
+}
+
+.video-container video {
+    position: absolute; /* The video is positioned relative to the container */
+    top: -50px; /* Adjust to move the video up/down */
+    left: -60px; /* Adjust to move the video left/right */
+    width: 800px; /* Set a width for the video, larger than the container if necessary */
+    height: auto; /* Maintain aspect ratio */
 }
 
 .Info {
@@ -224,9 +249,9 @@ body {
     color: white;
 }
 
-/*                                                   StateofSarahPage                                           */
+/*                                                  ExternalPages                                           */
 .Body {
-    margin-top: 70px;
+    margin-top: 50px;
     padding: 15px 10px; 
 }
 
@@ -243,6 +268,12 @@ body {
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
+}
+
+.Gif2 {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 25px;
 }
 
 .ProjectDes {
