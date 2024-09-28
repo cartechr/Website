@@ -28,7 +28,7 @@ body {
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    width: 80%;
+
     padding: 10px 20px;
     box-sizing: border-box;
 }
@@ -39,17 +39,18 @@ body {
 
 .Name {
     margin: 0;
-    font-size: 30px; /* Adjusted font size for better fit on smaller screens */
+    font-size: 45px; /* Adjusted font size for better fit on smaller screens */
     color: #404d80;
 }
 
 .Role {
     margin: 0;
-    font-size: 15px;
+    font-size: 20px;
     color: #404d80;
 }
 
 .links {
+    margin-left: 620px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -57,7 +58,7 @@ body {
 }
 
 .click {
-    max-width: 35px;
+    max-width: 40px;
     height: auto;
     border-radius: 20%;
     text-decoration: none;
@@ -70,7 +71,7 @@ body {
 
 .Resume {
     text-decoration: none;
-    color: 404d80;
+    color: #404d80;
     border: 2px solid white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -101,7 +102,7 @@ body {
 
 .Message {
     font-size: 20px;
-    color: 404d80;
+    color: #404d80;
     max-width: 45%; /* Take full width when wrapped */
     text-align: Center  ; /* Center-align the text */
     margin-top: 25px; /* Space between image and text */
@@ -125,7 +126,7 @@ body {
 }
 
 .Programming h1 {
-    color: 404d80;
+    color: #404d80;
 }
 .Projects {
     display: grid;
@@ -257,8 +258,8 @@ body {
 
 .Back {
     text-decoration: none;
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 10px;
@@ -276,11 +277,32 @@ body {
     margin-bottom: 25px;
 }
 
-.ProjectDes {
+.About {
+    font-size: 20px;
     color: white;
     background: grey;
-    margin-left: 100px;
-    padding: 0px 200px 0px 10px;
+    padding: 30px 400px 10px 30px;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+.About h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 35px;
+}
+
+.ProjectDes {
+    font-size: 20px;
+    color: white;
+    background: grey;
+    margin-left: 15px;
+    padding: 30px 400px 10px 30px;
+    border-radius: 5px;
+}
+.ProjectDes h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    margin-bottom: 35px;
 }
 
 .ProjectInfo {
