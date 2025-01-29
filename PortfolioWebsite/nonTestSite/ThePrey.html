@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian L Carter</title>
     <link rel="stylesheet" href="thestyles.css">
+
+    <!-- Prism.js for syntax highlighting -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
 </head>
 
 <body>
@@ -41,11 +46,6 @@
                     Your browser does not support the video.
                 </video>
 
-                <div class="About">
-                    <h1> About </h1>
-                    <p> Role: Programmer </p>
-                </div>
-
                 <div class="ProjectDes">
                     <h1> Project Info</h1>
                     <p> Role: Programmer </p>
@@ -56,6 +56,23 @@
 
                 <div class="ProjectInfo">
                     <h1> About </h1>
+                    
+                     <button class="toggle-btn" onclick="toggleDropdown()">+</button>
+
+                                            <!-- Hidden Content -->
+                       <div id="extraInfo" class="hidden">
+                            <p>This is additional project information.</p>
+
+                            <pre><code class="language-csharp">
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello, World!");
+    }
+}
+                            </code></pre>
+                        </div>
 
                     <div class="video-container">
                         <video class="Gif1" autoplay muted loop>
@@ -64,11 +81,15 @@
                         </video>
                     </div>
 
-                    <p> I did this that and this and that while doing that on that </p>
                 </div>
             </div>
         </div>
-
     </div>
+    <script>
+    function toggleDropdown() {
+        let content = document.getElementById("extraInfo");
+        content.style.display = (content.style.display === "none" || content.style.display === "") ? "block" : "none";
+    }
+    </script>
 </body>
 </html>
