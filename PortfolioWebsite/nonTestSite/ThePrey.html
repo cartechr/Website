@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Christian L Carter</title>
     <link rel="stylesheet" href="thestyles.css">
+    <meta name="description" content="Christian L Carter - Game Programmer Portfolio">
 
     <!-- Prism.js for syntax highlighting -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+
 </head>
 
 <body>
@@ -46,42 +48,216 @@
                     Your browser does not support the video.
                 </video>
 
-                <div class="ProjectDes">
-                    <h1> Project Info</h1>
-                    <p> Role: Programmer </p>
-                    <p> Duration: 1 month </p>
-                    <p> Engine: Unity </p>
-                    <p> Size: 10 Members </p>
-                </div>
-
                 <div class="ProjectInfo">
                     <h1> About </h1>
-                    
-                     <button class="toggle-btn" onclick="toggleDropdown()">+</button>
 
-                                            <!-- Hidden Content -->
-                       <div id="extraInfo" class="hidden">
-                            <p>This is additional project information.</p>
-
-                            <pre><code class="language-csharp">
-using System;
-
-class Program {
-    static void Main() {
-        Console.WriteLine("Hello, World!");
-    }
-}
-                            </code></pre>
-                        </div>
-
-                    <div class="video-container">
+                    <div class="video-container2">
                         <video class="Gif1" autoplay muted loop>
-                            <source src="AI_Sarah1.mp4" type="video/mp4">
+                            <source src="Vids\MakeRabbit.mp4" type="video/mp4">
                             Your browser does not support the video.
                         </video>
                     </div>
+                    <div class="InfoButton">
+                        <button class="toggle-btn" onclick="toggleDropdown()">+</button>
 
+                        <!-- Hidden Content -->
+                        <div id="extraInfo" class="hidden">
+
+                            <pre><code class="language-csharp">
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using TMPro;
+    using UnityEngine;
+    using UnityEngine.UI;
+
+    public class CharacterCustomizer : MonoBehaviour
+    {
+    [Serializable]
+    public class BlendshapeItem
+    {
+    public int Index;
+    public string Name;
+    public CharacterCustomizerItem item;
+    [HideInInspector]
+    public float BaseValue;
+    }
+
+    [Serializable]
+    public class MaterialColorItem
+    {
+    public string MaterialName;
+    public string Name;
+    [HideInInspector]
+    public Color BaseValue;
+    }
+
+
+    [SerializeField] private BlendshapeItem[] blendshapeItems;
+    [SerializeField] private MaterialColorItem[] materialColorItems;
+    [SerializeField] private SkinnedMeshRenderer skinnedMeshRenderer;
+    [SerializeField] private ColorPicker colorPicker;
+    [SerializeField] private GameObject buttonHolder;
+    [SerializeField] private Animator animator;
+    [SerializeField] Transform bunny;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private HoldableButton leftButton;
+    [SerializeField] private HoldableButton rightButton;
+
+    private int selectedMaterialColorItem;
+    private Vector2 cameraInput;
+
+    private void Awake()
+    {
+        colorPicker.onColorChanged += ColorPicker_onColorChanged;
+        var buttons = buttonHolder.GetComponentsInChildren button> (true);
+            for (int i = 0; i < materialColorItems.Length; i++)
+            {
+            if (i < buttons.Length)
+            {
+                var index = i;
+                buttons[i].GetComponentInChildren<TMP_Text> (true).text = materialColorItems[i].Name;
+                buttons[i].onClick.AddListener(() =>
+                {
+                    SelectMaterial(index);
+                });
+            }
+        }
+        colorPicker.Initialize();
+        leftButton.onHeld.AddListener(RotateLeft);
+        rightButton.onHeld.AddListener(RotateRight);
+
+        foreach (var blendshape in blendshapeItems)
+        {
+            blendshape.BaseValue = skinnedMeshRenderer.GetBlendShapeWeight(blendshape.Index);
+        }
+        foreach (var materialColorItem in materialColorItems)
+        {
+            materialColorItem.BaseValue = skinnedMeshRenderer.material.GetColor(materialColorItem.MaterialName);
+        }
+
+        InputManager.Instance?.OnMovementEvent.AddListener(OnCameraInputEvent);
+    }
+
+        public void Start()
+        {
+        Renderer();
+        colorPicker.color = skinnedMeshRenderer.material.GetColor(materialColorItems[selectedMaterialColorItem].MaterialName);
+        }
+
+        private void OnDestroy()
+        {
+        colorPicker.onColorChanged -= ColorPicker_onColorChanged;
+        InputManager.Instance?.OnMovementEvent.RemoveListener(OnCameraInputEvent);
+        }
+
+        private void Update()
+        {
+        bunny.eulerAngles += new Vector3(0f, cameraInput.x * rotationSpeed * Time.deltaTime, 0f);
+        }
+
+        private void OnCameraInputEvent(Vector2 value)
+        {
+        cameraInput = value;
+        }
+
+        public void ConfirmCharacter()
+        {
+            var gameState = new GameState();
+            gameState.Name = Guid.NewGuid().ToString();
+
+            foreach (var item in blendshapeItems)
+            {
+                gameState.BlendshapeInfos.Add(new GameState.BlendshapeInfo()
+                {
+                    BlendshapeIndex = item.Index,
+                    BlendshapeWeight = skinnedMeshRenderer.GetBlendShapeWeight(item.Index)
+                });
+            }
+            foreach(var item in materialColorItems)
+            {
+                gameState.MaterialInfos.Add(new GameState.MaterialInfo()
+                {
+                    MaterialName = item.MaterialName,
+                    MaterialColor = skinnedMeshRenderer.material.GetColor(item.MaterialName)
+                });
+             }
+
+            GameManager.Instance?.SetGameState(gameState);
+            LevelManager.Instance?.LoadGameScene();
+        }
+
+        public void CancelCreation()
+        {
+            LevelManager.Instance?.LoadMainMenu();
+        }
+
+        public void SelectMaterial(int index)
+        {
+            selectedMaterialColorItem = index;
+            colorPicker.color = skinnedMeshRenderer.material.GetColor(materialColorItems[selectedMaterialColorItem].MaterialName);
+        }
+
+        public void Renderer()
+        {
+            foreach (var item in blendshapeItems)
+            {
+            item.item.SetBlendshapeInfo(item.Index, item.Name, skinnedMeshRenderer.GetBlendShapeWeight(item.Index));
+            }
+        }
+
+        private void ColorPicker_onColorChanged(Color newColor)
+        {
+            if (selectedMaterialColorItem < 0 || selectedMaterialColorItem >= materialColorItems.Length) return;
+            skinnedMeshRenderer.material.SetColor(materialColorItems[selectedMaterialColorItem].MaterialName, newColor);
+        }
+
+        public void TriggerAnimation(string Anim)
+        {
+            animator.SetTrigger(Anim);
+        }
+
+        public void SetBlendshapeValue(int index, float value)
+        {
+            skinnedMeshRenderer.SetBlendShapeWeight(index, value * 100f);
+        }
+
+        public void RotateLeft()
+        {
+            bunny.eulerAngles += new Vector3(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
+
+        public void RotateRight()
+        {
+            bunny.eulerAngles -= new Vector3(0f, rotationSpeed * Time.deltaTime, 0f);
+        }
+
+        public void ResetValues()
+        {
+            foreach (var blendshape in blendshapeItems)
+            {
+                skinnedMeshRenderer.SetBlendShapeWeight(blendshape.Index, blendshape.BaseValue);
+            }
+            foreach (var materialColorItem in materialColorItems)
+            {
+                skinnedMeshRenderer.material.SetColor(materialColorItem.MaterialName, materialColorItem.BaseValue);
+            }
+            colorPicker.color = skinnedMeshRenderer.material.GetColor(materialColorItems[selectedMaterialColorItem].MaterialName);
+            Renderer();
+            }
+        }
+
+</code></pre>
+                    </div>
                 </div>
+            </div>
+        </div>
+            <div class="ProjectDes">
+                <h1> Project Info</h1>
+                <p> Role: Programmer </p>
+                <p> Duration: 1 month </p>
+                <p> Engine: Unity </p>
+                <p> Size: 10 Members </p>
             </div>
         </div>
     </div>

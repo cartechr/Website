@@ -169,9 +169,20 @@ body {
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.Gif1 {
+    width: 100%;
+    border-radius: 5px;
+}
+
 .video-container {
     width: 500px; /* Desired visible width */
     height: 500px; /* Desired visible height */
+    overflow: hidden; /* Ensures that only part of the video within this container is visible */
+    position: relative; /* The video will be positioned relative to this container */
+}
+.video-container2 {
+    width: 1000px; /* Desired visible width */
+    height: 1000px; /* Desired visible height */
     overflow: hidden; /* Ensures that only part of the video within this container is visible */
     position: relative; /* The video will be positioned relative to this container */
 }
@@ -184,14 +195,22 @@ body {
     height: auto; /* Maintain aspect ratio */
 }
 
+video-container2 video {
+    position: absolute; /* The video is positioned relative to the container */
+    top: -50px; /* Adjust to move the video up/down */
+    left: -60px; /* Adjust to move the video left/right */
+    width: 800px; /* Set a width for the video, larger than the container if necessary */
+    height: 500px; /* Maintain aspect ratio */
+}
+
 .Info {
-    color: white;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+color: white;
+font-weight: bold;
+display: flex;
+justify-content: space-between;
+width: 100%;
+text-align: center;
+margin-top: 10px;
 }
 
 .GameName, .Description {
@@ -307,6 +326,10 @@ body {
 
 .ProjectInfo {
     margin-left: 15px;
+    display: flex;
+    justify-content: space-between; /* Ensures spacing between Content and ProjectDes */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Add spacing between elements */
 }
 
 .Cover {
