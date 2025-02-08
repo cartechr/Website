@@ -181,8 +181,7 @@ body {
     position: relative; /* The video will be positioned relative to this container */
 }
 .video-container2 {
-    width: 1000px; /* Desired visible width */
-    height: 1000px; /* Desired visible height */
+    width: 80%; /* Desired visible width */
     overflow: hidden; /* Ensures that only part of the video within this container is visible */
     position: relative; /* The video will be positioned relative to this container */
 }
@@ -193,14 +192,6 @@ body {
     left: -60px; /* Adjust to move the video left/right */
     width: 800px; /* Set a width for the video, larger than the container if necessary */
     height: auto; /* Maintain aspect ratio */
-}
-
-video-container2 video {
-    position: absolute; /* The video is positioned relative to the container */
-    top: -50px; /* Adjust to move the video up/down */
-    left: -60px; /* Adjust to move the video left/right */
-    width: 800px; /* Set a width for the video, larger than the container if necessary */
-    height: 500px; /* Maintain aspect ratio */
 }
 
 .Info {
@@ -286,50 +277,55 @@ margin-top: 10px;
 
 .Content {
     margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
 }
 
 .Gif2 {
     width: 100%;
     border-radius: 5px;
-    margin-bottom: 25px;
 }
 
-.About {
-    font-size: 20px;
-    color: white;
-    background: grey;
-    padding: 30px 400px 10px 30px;
+.Gif3 {
+    width: 80%;
     border-radius: 5px;
-    margin-left: 15px;
+    margin-bottom: 25px;
 }
-.About h1 {
-    font-size: 30px;
-    font-weight: bolder;
-    margin-bottom: 35px;
+.Top {
+    display: flex;
 }
 
 .ProjectDes {
     font-size: 20px;
     color: white;
     background: grey;
-    margin-left: 15px;
-    padding: 30px 400px 10px 30px;
+    margin-left: 5px;
+    padding: 30px 390px 10px 30px;
     border-radius: 5px;
 }
 .ProjectDes h1 {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bolder;
     margin-bottom: 35px;
 }
 
+.About {
+    font-size: 20px;
+    color: white;
+    background: grey;
+    padding: 30px 390px 10px 30px;
+    border-radius: 5px;
+}
+
+    .About h1 {
+        font-size: 30px;
+        font-weight: bolder;
+        margin-bottom: 35px;
+    }
+
 .ProjectInfo {
     margin-left: 15px;
-    display: flex;
     justify-content: space-between; /* Ensures spacing between Content and ProjectDes */
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Add spacing between elements */
+
 }
 
 .Cover {
