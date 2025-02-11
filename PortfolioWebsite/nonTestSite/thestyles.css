@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #ebebed;
+    background-color: #0a0a0a;
     display: flex;
     justify-content: center;
     font-family: Roboto, sans-serif;
@@ -14,14 +14,14 @@ body {
 
 /*                                                   PAGE                                                       */
 .Page {
-    width: 80%;
+    width: 50%;
     max-width: 2000px;
     margin-top: 100px; /* Adjust this value based on the height of your fixed header */
 }
 
 /*                                                   HEADER                                                     */
 .header-nav {
-    background-color: #ebebed;
+    background-color: #0a0a0a;
     display: flex;
     z-index: 1000;
     top: 0;
@@ -30,7 +30,7 @@ body {
     position: fixed;
     padding: 10px 20px;
     box-sizing: border-box;
-    width: 80%; /* Make sure header takes up full width */
+    width: 50%; /* Make sure header takes up full width */
 }
 
 .NameRole {
@@ -41,13 +41,13 @@ body {
 .Name {
     margin: 0;
     font-size: 45px; /* Adjusted font size for better fit on smaller screens */
-    color: #404d80;
+    color: white;
 }
 
 .Role {
     margin: 0;
     font-size: 20px;
-    color: #404d80;
+    color: white;
 }
 
 .links {
@@ -71,7 +71,7 @@ body {
 
 .Resume {
     text-decoration: none;
-    color: #404d80;
+    color: white;
     border: 2px solid white;
     padding: 5px 10px;
     border-radius: 5px;
@@ -268,8 +268,8 @@ margin-top: 10px;
 
 .Back {
     text-decoration: none;
-    color: black;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     padding: 5px 10px;
     border-radius: 5px;
     margin-left: 10px;
@@ -291,39 +291,28 @@ margin-top: 10px;
     margin-bottom: 25px;
 }
 .Top {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Ensures equal width */
+    gap: 5px;
 }
 
-.ProjectDes {
-    font-size: 20px;
+.ProjectDes, .About {
+    font-size: 125%;
     color: white;
-    background: grey;
-    margin-left: 5px;
-    padding: 30px 390px 10px 30px;
+    background: #1a1a1a;
+    padding: 30px; /* Consistent padding */
     border-radius: 5px;
-}
-.ProjectDes h1 {
-    font-size: 25px;
-    font-weight: bolder;
-    margin-bottom: 35px;
+    margin-bottom: 5px;
+    box-sizing: border-box; /* Ensures padding doesn't break width */
 }
 
-.About {
-    font-size: 20px;
-    color: white;
-    background: grey;
-    padding: 30px 390px 10px 30px;
-    border-radius: 5px;
-}
-
-    .About h1 {
-        font-size: 30px;
+    .ProjectDes h1, .About h1 {
+        font-size: 25px;
         font-weight: bolder;
         margin-bottom: 35px;
     }
 
 .ProjectInfo {
-    margin-left: 15px;
     justify-content: space-between; /* Ensures spacing between Content and ProjectDes */
 
 }
