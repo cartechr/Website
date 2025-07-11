@@ -14,7 +14,7 @@ body {
 
 /*                                                   PAGE                                                       */
 .Page {
-    width: 50%;
+    width: 70%;
     max-width: 2000px;
     margin-top: 100px; /* Adjust this value based on the height of your fixed header */
 }
@@ -30,7 +30,7 @@ body {
     position: fixed;
     padding: 10px 20px;
     box-sizing: border-box;
-    width: 50%; /* Make sure header takes up full width */
+    width: 70%; /* Make sure header takes up full width */
 }
 
 .NameRole {
@@ -315,6 +315,14 @@ margin-top: 10px;
 .ProjectInfo {
     justify-content: space-between; /* Ensures spacing between Content and ProjectDes */
 
+}
+
+.Intro {
+    color: white;
+}
+
+.Intro p {
+    font-size: 20px;
 }
 
 .Cover {
